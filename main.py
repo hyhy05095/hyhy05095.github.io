@@ -20,6 +20,8 @@ def home():
 @app.route("/search")
 def search():
     keyword =request.args.get("keyword")
+    if keyword is None:
+        keyword = "python"
     if keyword in db:
         jobs = db[keyword]
     else:
